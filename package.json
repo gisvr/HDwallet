@@ -1,0 +1,48 @@
+{
+  "name": "hdwallet",
+  "version": "1.0.0",
+  "description": "Functional BTC/ETH Wallet for Backend",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manhluna/HDwallet.git"
+  },
+  "keywords": [
+    "hdwallet",
+    "bitcoin",
+    "ethereum",
+    "hdwallet",
+    "sendether",
+    "sendtokens",
+    "phrasetoaddress",
+    "phrasetoprivatekey",
+    "wallet",
+    "createwallet"
+  ],
+  "author": "Manh Luna",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/manhluna/HDwallet/issues"
+  },
+  "homepage": "https://github.com/manhluna/HDwallet#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "flex-contract-fix": "^1.2.0",
+    "flex-ether-fix": "^1.7.0",
+    "send-ether-fix": "^1.5.0",
+    "blockchain.info": "^2.12.1",
+    "blockcypher": "^0.2.0",
+    "bip32": "^2.0.4",
+    "bip39": "^3.0.2",
+    "bitcoinjs-lib": "^5.1.6",
+    "ethereum-address": "^0.0.4",
+    "bitcoin-address": "^0.3.0",
+    "bitcore-explorers": "^1.0.1",
+    "bitcore-lib": "^8.9.0",
+    "pushtx": "^1.0.1",
+    "underscore": "^1.9.1"
+  }
+}
