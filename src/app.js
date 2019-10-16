@@ -250,7 +250,7 @@ const btc_checkaddr = (net,from,to)=>{
     return false
 }
 //----------------CHECKADDRESS-ETH----------------------------------------------
-const addr_eth = (from,to)=>{
+const eth_checkaddr = (from,to)=>{
   if (ether_addr.isAddress(from) && ether_addr.isAddress(to)){
     return true;
   }
