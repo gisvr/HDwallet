@@ -1,5 +1,5 @@
 {
-  "name": "hdwallet",
+  "name": "lunawallet",
   "version": "1.0.0",
   "description": "Functional BTC/ETH Wallet for Backend",
   "main": "src/app.js",
