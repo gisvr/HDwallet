@@ -75,7 +75,7 @@ async function token_get(contract,decimals,addr,cb){
     cb(await contract.balanceOf({args:{who: addr}})/Math.pow(10,decimals))
 }
 //----------------GET-BTC/ETH----------------------------------------------
-function bal_get(api,coin,address,cb){
+function bal_get(api,address,cb){
     // let api = btcapi;
     // if (coin == 'eth') { api = ethapi; }
     api.getAddrBal(address,[],(err,data)=>{
@@ -299,7 +299,7 @@ function token_monitor(contract,address,cb){
     });
 }
 //----------------MONITOR-BTC/ETH---------------------------------------------
-function bal_monitor(api,coin,address,url,cb){
+function bal_monitor(api,address,url,cb){
     // let api = btcapi;
     // if (coin == 'eth') { api = ethapi; }
     let webhook = {
