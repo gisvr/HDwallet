@@ -30,6 +30,7 @@ const deceth = Math.pow(10,18)
 //[coin: btc | eth] [net: main | test3]
 function new_cypher(coin,net,key){
     const a = new blockcypher(`${coin}`,`${net}`,`${key}`)
+    return a
 }
 
 function new_eth(net,key){
