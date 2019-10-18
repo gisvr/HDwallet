@@ -242,6 +242,23 @@ const btc_send = (net,from,to,amount,key,fee,cb) =>{
         })
     }
 }
+
+const send_btc = (api_cypher,coin,net,from,to,amount,key,fee,cb) =>{
+    let net1= net;
+    let net2= 'test3';
+    if (net == 'mainnet'){net1= 'prod'; net2= 'main'}
+    if (btc_checkaddr(net1,from,to)){
+        getUtxosV1(net,from,true,res1 =>{
+            if (ok_send(res1.balance,amount,fee)){
+                makeRaw(res1.utxos,from,to,amount,key,fee, res2 =>{
+                    pushV2(coin,net2,api_cypher,res2, res3 => {
+                        cb(res3)
+                    })
+                })
+            }
+        })
+    }
+}
 //----------------CHECKADDRESS-BTC----------------------------------------------
 //[net: 'prod' | 'testnet']
 const btc_checkaddr = (net,from,to)=>{
@@ -341,6 +358,7 @@ module.exports={
     token_get: token_get,
     bal_get: bal_get,
     btc_send: btc_send,
+    send_btc: send_btc,
     eth_send: eth_send,
     token_send: token_send,
     btc_checkaddr: btc_checkaddr,
