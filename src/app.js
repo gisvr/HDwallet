@@ -227,7 +227,7 @@ const pushV5 = (rawTx,cb)=>{
     });
 }
 
-const btc_send = (net,from,to,amount,key,fee) =>{
+const btc_send = (net,from,to,amount,key,fee,cb) =>{
     let net1= net;
     if (net == 'mainnet'){net1= 'prod'}
     if (btc_checkaddr(net1,from,to)){
@@ -235,7 +235,7 @@ const btc_send = (net,from,to,amount,key,fee) =>{
             if (ok_send(res1.balance,amount,fee)){
                 makeRaw(res1.utxos,from,to,amount,key,fee, res2 =>{
                     pushV1(net,res2, res3 => {
-                        console.log(res3)
+                        cb(res3)
                     })
                 })
             }
