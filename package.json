@@ -1,6 +1,6 @@
 {
   "name": "lunawallet",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Functional BTC/ETH Wallet for Backend",
   "main": "src/app.js",
   "scripts": {
