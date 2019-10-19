@@ -95,7 +95,9 @@ function bal_get(api,address,cb){
 async function eth_send(eth,FromAddress,PrivateKey,ReceiverAddress,amount,fee,cb){
     eth_get(eth,FromAddress,balance =>{
         if (eth_checkaddr(FromAddress,ReceiverAddress) && ok_send(balance,amount,fee)) {
-            cb(await eth.transfer(ReceiverAddress, amount,{key: PrivateKey}))
+            (async function(){
+                cb(await eth.transfer(ReceiverAddress, amount,{key: PrivateKey}))
+            })()
         } else {
             cb(false)
         }
@@ -105,14 +107,16 @@ async function eth_send(eth,FromAddress,PrivateKey,ReceiverAddress,amount,fee,cb
 async function token_send(contract,decimals,from,to,amount,PrivateKey,fee,cb){
     token_get(contract,decimals,from,balance =>{
         if (eth_checkaddr(from,to) && ok_send(balance,amount,fee)) {
-            cb(await contract.transfer({
-                args: {
-                    //[ _to & _value ] is two args of transfer method in Contract  <function transfer(address _to, uint _value) public whenNotPaused>
-                    _to: to,
-                    _value: (amount*Math.pow(10,decimals)).toString()
-                },
-                key: PrivateKey
-            }))
+            (async function(){
+                cb(await contract.transfer({
+                    args: {
+                        //[ _to & _value ] is two args of transfer method in Contract  <function transfer(address _to, uint _value) public whenNotPaused>
+                        _to: to,
+                        _value: (amount*Math.pow(10,decimals)).toString()
+                    },
+                    key: PrivateKey
+                }))
+            })()
         } else {
             cb(false)
         }
